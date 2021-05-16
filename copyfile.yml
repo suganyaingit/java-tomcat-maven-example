@@ -1,9 +1,10 @@
-# copywarfile.yml
+# copywarfile.yml [all folders shouls have chmod 777 foldername/ or chown +x foldername;alignment should be proper;hosts: & name: should not have any special characters
 ---
-- hosts: all
+- hosts: webservers
   become: true
   tasks:
-    - name: copy jar/war onto tomcat servers
-        copy:
-          src: /opt/playbooks/webapp/target/webapp.war
-          dest: /opt/apache-tomcat-8.5.32/webapps
+    - name: copy jar war onto tomcat servers
+      copy:
+          src: /home/ansadmin/opt/playbooks/webapp/target/webapp.war
+          dest: /root/opt/apache-tomcat-8.5.32/webapps
+          
